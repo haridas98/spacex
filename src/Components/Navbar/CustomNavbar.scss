@@ -1,0 +1,124 @@
+
+.navbar{
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.44);
+  color: white;
+  border: rgba(255, 255, 255, 0.2) solid 0.5px;
+
+
+  .navbar-brand{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100px;
+    width: 320px;
+    img{
+      padding: 0 0 1rem 2rem;
+    }
+  }
+
+  a{
+    color: white;
+  }
+
+    .container{
+      display: flex;
+      justify-content: space-between;
+      .navbar-nav{
+        a{
+          margin-left: 2rem;
+        }
+      }
+    }
+
+}
+
+
+.navbar-brand {
+  --b: 0.6px;   /* толщина границы */
+  --c: white;   /* цвет границы */
+  --w: 28px;  /* ширина границы */
+
+  padding: var(--b); /* пространство для границы */
+  position: relative;
+  /* Нерелевантный код */
+}
+
+.navbar-brand::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--c, white);
+  -webkit-mask-size: calc(var(--b) * 2) calc(var(--w) * 0.25), calc(var(--w) * 0.25) calc(var(--b) * 2);
+  -webkit-mask-repeat: no-repeat;
+  mask:
+          linear-gradient(#fff, #fff) top left,
+          linear-gradient(#fff, #fff) top left,
+          linear-gradient(#fff, #fff) bottom left,
+          linear-gradient(#fff, #fff) bottom left,
+          linear-gradient(#fff, #fff) top right,
+          linear-gradient(#fff, #fff) top right,
+          linear-gradient(#fff, #fff) bottom right,
+          linear-gradient(#fff, #fff) bottom right;
+  mask-size: calc(var(--b) * 2) calc(var(--w) * 0.25), calc(var(--w) * 0.25) calc(var(--b) * 2);
+  mask-repeat: no-repeat;
+  opacity: 0; /* Изначально скрыть углы */
+  transition: opacity 0.3s ease; /* Добавить эффект перехода */
+}
+
+.navbar-brand:hover::before {
+  opacity: 1; /* Показать углы при наведении */
+  animation: glitch 1s forwards; /* Добавить анимацию */
+}
+
+.navbar-brand:hover{
+  animation: glitchborder 1s forwards; /* Добавить анимацию */
+}
+
+@keyframes glitch {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes glitchborder {
+  0% {
+    border: solid 0.4px rgba(255, 255, 255, 0);
+  }
+  20% {
+    border: solid 0.4px rgba(255, 255, 255, 0.02);
+  }
+  40% {
+    border: solid 0.4px rgba(255, 255, 255, 0);
+  }
+  60% {
+    border: solid 0.4px rgba(255, 255, 255, 0.05);
+  }
+  80% {
+    border: solid 0.4px rgba(255, 255, 255, 0);
+  }
+  100% {
+
+    border: solid 0.4px rgba(255, 255, 255, 0.05);
+  }
+}

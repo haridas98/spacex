@@ -4,14 +4,13 @@ import { Button } from "react-bootstrap";
 
 const Home = () => {
   return (
-    <section className="main ">
+    <div className="main ">
       <img
         className="back position-absolute vw-100"
-        style={{ zIndex: "-2", left: "0", top: "0" }}
         src="./img/фон.png"
         alt=""
       />
-      <div className="container">
+      <div className="container ">
         <div className="start-content">
           <div className="start-title">
             <h1>Путешествие</h1>
@@ -19,7 +18,9 @@ const Home = () => {
           </div>
           <div className="start-button">
             <div className="container-button">
-              <Button>Начать путешествие</Button>
+              <button type="button" data-bs-toggle="button">
+                Начать путешествие
+              </button>
             </div>
           </div>
         </div>
@@ -50,7 +51,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

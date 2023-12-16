@@ -10,7 +10,7 @@ import React from "react";
 
 function App() {
   return (
-    <div>
+    <div className="">
       <CustomNavbar />
       <Routes>
         <Route path="/" element={<Home />} />

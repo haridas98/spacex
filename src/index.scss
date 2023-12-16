@@ -1,13 +1,23 @@
 @import '~bootstrap/scss/bootstrap';
-@import url(https://db.onlinewebfonts.com/c/80f19ceeaa4fad006baf230b64f4dac9?family=Museo+Sans+Cyrl+700+Regular);
+@import url(https://db.onlinewebfonts.com/a/dztbd0zUwcH7e0IBirNjr1UziNKP1Mbm);
+
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  background: #222;
+  font-family:
+          "Museo Sans Cyrl 100 Regular",
+          "Museo Sans Cyrl 300 Regular",
+          "Museo Sans Cyrl 500 Regular",
+          "Museo Sans Cyrl 700 Regular",
+  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  h1{
+    font-family: "Museo Sans Cyrl 700 Regular";
+  }
 }
 
 code {

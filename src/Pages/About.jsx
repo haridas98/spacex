@@ -3,7 +3,9 @@ import React from "react";
 const About = () => {
   return (
     <div>
-      <h1>Страница о нас</h1>
+      <h1 className="justify-content-center align-items-center">
+        Страница о нас
+      </h1>
     </div>
   );
 };

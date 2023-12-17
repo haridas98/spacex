@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import "./CustomNavbar.scss";
 import { Link } from "react-router-dom";
 
-const CustomNavbar = () => {
+const CustomNavbar = ({ navbarItems }) => {
   return (
     <Navbar collapseOnSelect expand="lg" data-bs-theme="dark" className="">
       <Container>
@@ -19,24 +19,11 @@ const CustomNavbar = () => {
           id="responsive-navbar-nav"
         >
           <Nav>
-            <Nav.Link as={Link} to="/">
-              Главная
-            </Nav.Link>
-            <Nav.Link as={Link} to="/technologies">
-              Технология
-            </Nav.Link>
-            <Nav.Link as={Link} to="/flight">
-              График полётов
-            </Nav.Link>
-            <Nav.Link as={Link} to="/guarantee">
-              Гарантии
-            </Nav.Link>
-            <Nav.Link as={Link} to="/about">
-              О компании
-            </Nav.Link>
-            <Nav.Link as={Link} to="/contact">
-              Контакты
-            </Nav.Link>
+            {navbarItems.map((navbarItem, id) => (
+              <Nav.Link key={id} as={Link} to={navbarItem.url}>
+                {navbarItem.name}
+              </Nav.Link>
+            ))}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -2,7 +2,7 @@ import React from "react";
 import "./home.scss";
 import { Button } from "react-bootstrap";
 
-const Home = () => {
+const Home = ({ advList }) => {
   return (
     <div className="main ">
       <img
@@ -26,28 +26,13 @@ const Home = () => {
         </div>
         <div className="adv-content">
           <div className="adv">
-            <div className="adv-item item-1">
-              <p>мы</p>
-              <h1>1</h1>
-              <p>на рынке</p>
-            </div>
-            <div className="adv-item item-2">
-              <p>гарантируем</p>
-              <h1>50%</h1>
-              <p>безопасность</p>
-            </div>
-            <div className="adv-item item-3">
-              <p>календарик за</p>
-              <h1>
-                2001<span style={{ fontSize: "20px" }}>г.</span>
-              </h1>
-              <p>в подарок</p>
-            </div>
-            <div className="adv-item item-4">
-              <p>путешествие</p>
-              <h1>597</h1>
-              <p>дней</p>
-            </div>
+            {advList.map((adv, id) => (
+              <div key={id} className={`adv-item item-${id + 1}`}>
+                <p>{adv.text1}</p>
+                <h1>{adv.number}</h1>
+                <p>{adv.text2}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -2,18 +2,14 @@
   height: 660px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.back{
-  height: 660px;
-  object-fit: cover;
-  z-index: -1;
-}
-.container {
+.main-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 0px 0px;
+  gap: 0 0;
   grid-auto-flow: row;
   align-items: center;
   grid-template-areas:
@@ -23,12 +19,28 @@
   padding: 0;
   height: 380px;
   color: #fff;
-
 }
 
-.start-content {  display: grid;
+h1{
+  font-size: 4rem;
+}
+h2{
+  font-size: 2rem;
+}
+p{
+  font-size: 1rem;
+}
+
+.back{
+  height: 660px;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.start-content {
+  display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 1fr 1fr;
   grid-auto-flow: row;
   grid-template-areas:
     "start-title"
@@ -42,20 +54,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 190px;
-  h1,p{
+  h1,h2{
     background: -webkit-linear-gradient(right, #ff3f04 50%, #fff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   h1{
-    font-size: 60px;
+
     text-transform: uppercase;
     margin: 0;
     
   }
-  p{
-    font-size: 20px;
+  h2{
     margin: 0;
     font-family: "Museo Sans Cyrl 700 Regular";
   }
@@ -67,8 +77,7 @@
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-  height: 190px;
-  button{
+  .starter{
 
     font-size: 14px;
     border-width: 1px;
@@ -82,55 +91,56 @@
     border-radius: 0;
     align-content: center;
     padding: 5px 20px;
+    background: transparent;
+    --b: 0.6px;   /* толщина границы */
+    --c: white;   /* цвет границы */
+    --w: 28px;  /* ширина границы */
+    color: white;
+    position: relative;
+  }
+
+
+  .starter::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mask:
+            linear-gradient(#fff, #fff) bottom left,
+            linear-gradient(#fff, #fff) bottom left,
+            linear-gradient(#fff, #fff) top right,
+            linear-gradient(#fff, #fff) top right;
+    -webkit-mask-size: calc(var(--b) * 2) calc(var(--w) * 0.25), calc(var(--w) * 0.25) calc(var(--b) * 2);
+    -webkit-mask-repeat: no-repeat;
+    opacity: 0; /* Изначально скрыть углы */
+    transition: opacity 0.3s ease; /* Добавить эффект перехода */
+    z-index: 5;
+  }
+
+
+
+  .starter:hover::before {
+    opacity: 1; /* Показать углы при наведении */
+    animation: glitch 1s forwards; /* Добавить анимацию */
+    border-width: 1px;
+    border-style: solid
+  }
+  .starter:hover{
+    background: transparent;
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right top,
+            rgba(38, 62, 102, 1) 0%,
+            rgba(9, 33, 61, 1) 40%,
+            rgba(17, 31, 45, 1) 60%,
+            rgba(35, 89, 156, 1) 100%
+    ) 1;
   }
 }
 
-button {
-  background: transparent;
-  --b: 0.6px;   /* толщина границы */
-  --c: white;   /* цвет границы */
-  --w: 28px;  /* ширина границы */
-  color: white;
-  position: relative;
-}
 
-button::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  mask:
-          linear-gradient(#fff, #fff) bottom left,
-          linear-gradient(#fff, #fff) bottom left,
-          linear-gradient(#fff, #fff) top right,
-          linear-gradient(#fff, #fff) top right;
-  -webkit-mask-size: calc(var(--b) * 2) calc(var(--w) * 0.25), calc(var(--w) * 0.25) calc(var(--b) * 2);
-  -webkit-mask-repeat: no-repeat;
-  opacity: 0; /* Изначально скрыть углы */
-  transition: opacity 0.3s ease; /* Добавить эффект перехода */
-}
-
-
-
-button:hover::after {
-  opacity: 1; /* Показать углы при наведении */
-  animation: glitch 1s forwards; /* Добавить анимацию */
-  border-width: 1px;
-  border-style: solid
-}
-button:hover{
-  background: transparent;
-  border-width: 1px;
-  border-style: solid;
-  border-image: linear-gradient(to right top,
-          rgba(38, 62, 102, 1) 0%,
-          rgba(9, 33, 61, 1) 40%,
-          rgba(17, 31, 45, 1) 60%,
-          rgba(35, 89, 156, 1) 100%
-  ) 1;
-}
 
 @keyframes glitch {
   0% {
@@ -153,25 +163,11 @@ button:hover{
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.adv-content {  display: grid;
+.adv-content {
+  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 0px 0px;
+  gap: 0 0;
   grid-auto-flow: row;
   grid-template-areas:
     ". adv";
@@ -189,7 +185,6 @@ button:hover{
   grid-area: adv;
   color: #e4e4e4;
   h1{
-    font-size: 60px;
     margin: 10px 0 0 0;
   }
   p{
@@ -206,7 +201,7 @@ button:hover{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-height: 180px ;
+  height: 180px ;
   width: 180px;
   background-color: transparent;
   border: 1px solid transparent;
@@ -262,4 +257,92 @@ height: 180px ;
   border-width: 1px;
   border-style: solid;
   border-image: linear-gradient(to left top, rgba(0,0,0,0) 0%, rgba(255,255,255,0) 50%, rgba(125,125,125,0.06) 55%,  rgba(255,255,255,0.3) 100%) 1;
+}
+
+
+
+@media  (min-width: 850px) and (max-width: 1170px){
+  .main-container{
+    h1{
+      font-size: 3rem;
+    }
+    p{
+      font-size: 1rem;
+    }
+  }
+  .adv-item {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 849px){
+  .main-container{
+    padding-top: 100px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "start-content"
+    "adv-content";
+    height: 660px;
+
+
+
+    h1{
+      font-size: 2.8rem;
+    }
+    h2{
+      font-size: 1.2rem;
+    }
+    p{
+      font-size: 1rem;
+    }
+    .adv-item {
+      height: 150px;
+      width: 150px;
+    }
+  }
+
+  .start-title{
+    align-items: center;
+    h1,h2{
+      background: -webkit-linear-gradient(bottom, #ff3f04 5%, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  .start-button{
+    align-items: center;
+  }
+
+  .starter{
+    border-image: none;
+    border: 1px solid #fff
+  }
+
+  .adv-content {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 350px){
+  .main-container {
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .adv-item {
+      height: 120px;
+      width: 120px;
+    }
+  }
 }

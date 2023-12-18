@@ -13,7 +13,7 @@ const CustomNavbar = ({ navbarItems }) => {
           <img src="./img/лого.png" alt="" />
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle aria-controls="asic-navbar-nav" />
         <Navbar.Collapse
           className="justify-content-end"
           id="responsive-navbar-nav"

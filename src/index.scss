@@ -3,6 +3,8 @@
 
 
 body {
+
+  user-select: none;
   margin: 0;
   background: #222;
   font-family:
@@ -19,8 +21,20 @@ body {
     font-family: "Museo Sans Cyrl 700 Regular";
   }
 }
-
+.container{
+  width: 1170px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding: 0;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media (max-width: 461px){
+  .container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }

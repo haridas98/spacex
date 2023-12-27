@@ -17,7 +17,7 @@ function App() {
     // Функция для выполнения запроса и обновления состояния
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/adv/");
+        const response = await axios.get("http://api.haridas.ru:8000/adv/");
         setAdvList(response.data);
       } catch (error) {
         console.error(error);
@@ -26,7 +26,7 @@ function App() {
 
     const fetchNavbarItemsData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/navbar/");
+        const response = await axios.get("http://api.haridas.ru:8000/navbar/");
         setNavbarItems(response.data);
       } catch (error) {
         console.error(error);

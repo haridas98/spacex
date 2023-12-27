@@ -16,7 +16,7 @@ const Home = ({ advList }) => {
               <h1>Путешествие</h1>
               <h2>на красную планету</h2>
             </div>
-            <div className="start-button">
+            <div className="start-button ">
               <div className="container-button">
                 <button
                   type="button"

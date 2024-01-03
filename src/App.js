@@ -8,6 +8,7 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import NotFound from "./Pages/NotFound";
 
 function App() {
   const [advList, setAdvList] = useState([]);
